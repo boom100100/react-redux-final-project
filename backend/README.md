@@ -20,5 +20,12 @@ port ENV.fetch(“PORT”) { 3001 }
 
 * Database
 
-rails db:migrate
-rails db:seed
+Make sure the environmental variable DATABASE_URL is not set.
+
+    set PREV_DATABASE_URL=%DATABASE_URL%
+    set DATABASE_URL=
+
+Then, set up the database.
+
+    rails db:migrate
+    rails db:seed
