@@ -1,24 +1,30 @@
 # README
 
-* Ruby version
+## Ruby version
+2.6.5
 
-* System dependencies
+## System Requirements
+As of October 28, 2024, I was only able to get this running on Windows 10 (but not MacOs with an M3 chip).
+
+## System dependencies
 rack-cors
 
-* Configuration
+## Configuration
 
 bundle install
 In config/initializers, create cors.rb file. Configure cors on port 3001 if using local setup. This setup is supplied in this repository, so you'll just need to make necessary changes for a non-local setup.
 
-In config/puma.rb, change
+## Run
+    rails server
 
-port ENV.fetch(“PORT”) { 3001 }
+## Database
 
-to
+Make sure the environmental variable DATABASE_URL is not set.
 
-port ENV.fetch(“PORT”) { 3001 }
+    set PREV_DATABASE_URL=%DATABASE_URL%
+    set DATABASE_URL=
 
-* Database
+Then, set up the database. This may require `rails server` to be running.
 
-rails db:migrate
-rails db:seed
+    rails db:migrate
+    rails db:seed
